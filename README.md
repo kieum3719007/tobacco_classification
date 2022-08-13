@@ -1,5 +1,21 @@
 # Document Classification
 
+## Web application installation
+Clone the project
+```
+git clone https://github.com/thaihocnguyen-git/tobacco_classification.git
+```
+Install dependecies
+
+```
+cd path/to/project
+pip install -r requirement.txt
+```
+Run the application
+```
+flask --app app --debug run
+```
+
 ## Project Overview
 
 Document image understanding or document image information retrieval has a wide range application. Getting structure information from printed or handwritting document automatically helps reduce much of time and effor in many tasks. Deeplearning and computer vision is getting more and more success with many robust model achieving excellent accuracy. Document classification is one of important proccesses in image document understanding. The more accuracy of classification the better preparing for futher task such as optical character recognizing or information retrieval. 
@@ -92,8 +108,3 @@ Beside, the DiT model gives the better than the two others. This is reasonale be
 ## Conclusion
 Document image classification is an interesting and pratical problem. The transfer learning technique is so good by using the knowledge pretrained from the large dataset and transfer to downstream model. This not only help reduce training time, but make the model become robust with better accuracy.
 The most diffculty is th overfitting problem. This is a classical problem in machine learning. There are some technique to duel with it that I should research and apply to improve my model such as: label smothing, early stopping, data argumentation, class weights or just use the large dataset.
-
-
-
-
-
