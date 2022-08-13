@@ -1,5 +1,6 @@
 import io
 import os
+import torch
 
 from flask import Flask, render_template, request
 from PIL import Image
@@ -47,10 +48,11 @@ def get_prediction(image_bytes):
     """
     Gets the prediction of a single image
     """
-    image = transform_image(image_bytes)
-    outputs = model.forward(image)
-    confidence, index = outputs.max(1)
-    confidence, label = confidence.item(), labels[index.item()]
+    with torch.no_grad():
+        image = transform_image(image_bytes)
+        outputs = model.forward(image)
+        confidence, index = outputs.max(1)
+        confidence, label = confidence.item(), labels[index.item()]
     return confidence, label
 
 
