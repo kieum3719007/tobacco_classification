@@ -11,6 +11,9 @@ Install dependecies
 cd path/to/project
 pip install -r requirement.txt
 ```
+
+Download model and path to root directory: [model](https://drive.google.com/file/d/14R7uyGVx3_2AVDnKJxmlJwON1v_mSiCK/view?usp=sharing)
+
 Run the application
 ```
 flask --app app --debug run
@@ -69,9 +72,9 @@ The accuracy is the used metric because this is the multiclass classification an
 The result of model is below:
 | Model | Model size | Accuracy  |
 |---------|----------|-----------|
-| DiT     | 330MB    |           |
-| Dense121| 35MB     |           |
-| VGG19   | 522 MB   |           |
+| DiT     | 330MB    |     69%   |
+| Dense121| 35MB     |     53%   |
+| VGG19   | 522 MB   |     67%   |
 
 ### Diffculties and solutions
 #### 1. Finding the backbone
@@ -95,11 +98,11 @@ The loss function is to compute the difference between prediction and ground tru
 
 ## The classification result
 As the accuracy in test dataset:
-| Model | Model size | Test Accuracy  |Train Accuracy|
-|---------|----------|-----------|------------------|
-| DiT     | 330MB    |           |
-| Dense121| 35MB     |           |
-| VGG19   | 522 MB   |           |
+| Model | Model size | Accuracy test  |  Accuracy train |
+|---------|----------|-----------|-----------|
+| DiT     | 330MB    |     69%   | 99% |
+| Dense121| 35MB     |     53%   | 97% |
+| VGG19   | 522 MB   |     67%   | 99% |
 
 our model is a quite good, but not very good. The problem can easily be figured out is overfitting.  
 
