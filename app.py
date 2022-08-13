@@ -11,7 +11,7 @@ from transformations.transformations import (TRANSFORMATIONS,
 
 app = Flask(__name__)
 labels = get_labels()
-model = get_classifier(BackboneName.VGG19, len(labels))
+model = get_classifier(BackboneName.DiT, len(labels))
 model = load(model)
 
 
