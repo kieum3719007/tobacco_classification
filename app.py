@@ -33,8 +33,9 @@ def index():
 def predict():
     if request.method == 'POST':
         # read image bytes
-        file = request.files['image']
-        if (file):
+        
+        if ('image' in request.files):
+            file = request.files['image']
             image_bytes = file.read()
         
             save_image(image_bytes)
