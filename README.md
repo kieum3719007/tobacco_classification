@@ -23,7 +23,18 @@ These are some sample images in `./samples`
 
 Document image understanding or document image information retrieval has a wide range application. Getting structure information from printed or handwritting document automatically helps reduce much of time and effor in many tasks. Deeplearning and computer vision is getting more and more success with many robust model achieving excellent accuracy. Document classification is one of important proccesses in image document understanding. The more accuracy of classification the better preparing for futher task such as optical character recognizing or information retrieval. 
 
-In this project, I explored and deal with the [Tobacco3482 Dataset](https://wiki.umiacs.umd.edu/clip/index.php/Main_Page), a document classification dataset. As many pretrained model are public for downstream tasks recent years ago, I will apply transfer learning to this classfication task.
+In this project, I explored and deal with the [Tobacco3482 Dataset](https://wiki.umiacs.umd.edu/clip/index.php/Main_Page), a document classification dataset. As many pretrained model are public for downstream tasks recent years ago, I will apply transfer learning to this classfication task. The final goal of project this project is to classify an input image of documentation in 10 categories: 
+1. Scientific
+2. ADVE
+3. Resume
+4. Email
+5. Memo
+6. Letter
+7. News
+8. Report
+9. Note
+10. Form
+
 ## Problem statement
 1. Download and explore the **Tobacco3428** dataset.
 2. Split train/test and load dataset
@@ -37,11 +48,14 @@ b. Create classification head with pytorch deep learning library for our dataset
 5. Train models with **Tobacco3428** dataset.
 6. Validate and compare the result of models.
 7. Create a simple web application for classification demostration.
-## Metric
+## Metrics
 The *accuracy* score is used to evaluate the metric because we treat each class has the same importance and our dataset is not too imbalance.
-## Data Exploration
+## Data Exploration and Visualization
 The data set includes 3482 image of documents over 10 classes.
-There is a quite imbalance in data where the label *email* is the most popular.
+There is a quite imbalance in data where the label *email* and *Memo* is the most popular.
+![data_distribution](https://github.com/thaihocnguyen-git/tobacco_classification/blob/main/samples/data_explorepng.png)
+![Here are some samples of input images](https://github.com/thaihocnguyen-git/tobacco_classification/blob/main/samples/sample.png)
+
 ## Data processing
 There is no abnormal case in data. But we need construct the data pipeline to load image and its label from hard disk.
 The data processing image include these steps:
@@ -96,7 +110,8 @@ The loss function is to compute the difference between prediction and ground tru
 3. Web application improvement
 	 Because the shortage of time, I could only provide very simple of demonstration application. The work will be better if I make web application become well-looked and add some more function likes give top-k labels or make the restful API to serve other application.
 
-## The classification result
+## Model Evaluation and Validation
+
 As the accuracy in test dataset:
 | Model | Model size | Accuracy test  |  Accuracy train |
 |---------|----------|-----------|-----------|
@@ -106,8 +121,17 @@ As the accuracy in test dataset:
 
 our model is a quite good, but not very good. The problem can easily be figured out is overfitting.  
 
-Beside, the DiT model gives the better than the two others. This is reasonale because it is trained in the same domain dataset.
+Here is the training loss, it's became very small. But in the testing phase, I didn't get high accuracy as expected:
+![training loss](https://github.com/thaihocnguyen-git/tobacco_classification/blob/main/samples/training%20loss.svg)
 
+Beside, the DiT model gives the better than the two others. This is reasonale because it is trained in the same domain dataset.
+## Justification
+The DiT is a quite better than two others because they was pre-trained on the same domain dataset. But in general, all three models I trained is not good as I expected. The main reason I now can think about now is over fitting but I need futher work to improve this!
 ## Conclusion
+### Refinement
+
 Document image classification is an interesting and pratical problem. The transfer learning technique is so good by using the knowledge pretrained from the large dataset and transfer to downstream model. This not only help reduce training time, but make the model become robust with better accuracy.
-The most diffculty is th overfitting problem. This is a classical problem in machine learning. There are some technique to duel with it that I should research and apply to improve my model such as: label smothing, early stopping, data argumentation, class weights or just use the large dataset.
+The most diffculty is th overfitting problem. This is a classical problem in machine learning. 
+
+### Improvement
+There are some technique to duel with it that I should research and apply to improve my model such as: label smothing, early stopping, data argumentation, class weights or just use the large dataset.
