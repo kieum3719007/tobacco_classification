@@ -18,7 +18,7 @@ Run the application
 ```
 flask --app app --debug run
 ```
-
+These are some sample images in `./samples`
 ## Project Overview
 
 Document image understanding or document image information retrieval has a wide range application. Getting structure information from printed or handwritting document automatically helps reduce much of time and effor in many tasks. Deeplearning and computer vision is getting more and more success with many robust model achieving excellent accuracy. Document classification is one of important proccesses in image document understanding. The more accuracy of classification the better preparing for futher task such as optical character recognizing or information retrieval. 
