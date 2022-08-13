@@ -22,12 +22,8 @@ class ImageClassifier(Module):
         self.num_classes = num_classes
         self.traning_backbone = traning_backbone
         self.feature_extraction = backbone
-        self.hidden = torch.nn.Linear(
-            in_features=self.feature_extraction.num_features,
-            out_features=1024
-        )
         self.classifier = torch.nn.Linear(
-            in_features=1024,
+            in_features=self.feature_extraction.num_features,
             out_features=self.num_classes
         )
 
@@ -39,7 +35,6 @@ class ImageClassifier(Module):
         features = self.feature_extraction(input)
         if (not self.traning_backbone):
             features.detach()
-        features = self.hidden(features)
         return self.classifier(features)
 
 
